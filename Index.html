@@ -1,0 +1,335 @@
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Priyank Chauhan — Web Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Priyank Chauhan — Web Developer. Clean, fast, and responsive websites. Projects, skills, and contact information." />
+  <meta property="og:title" content="Priyank Chauhan — Web Developer" />
+  <meta property="og:description" content="Frontend & backend skills, modern projects, responsive design, contact details." />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#111827; --muted:#94a3b8; --text:#e5e7eb;
+      --brand:#0ea5e9; --brand-2:#22c55e; --accent:#f59e0b;
+      --ring:0 0 0 3px rgba(14,165,233,.25);
+      --glass:linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+      --radius:14px;
+    }
+    [data-theme="light"]{
+      --bg:#f8fafc; --panel:#ffffff; --muted:#475569; --text:#0f172a;
+      --brand:#0ea5e9; --brand-2:#16a34a; --accent:#b45309;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg,rgba(0,0,0,.32),transparent),var(--bg);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid rgba(255,255,255,.02)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .avatar{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #3b82f6,#0ea5e9,#06b6d4);box-shadow:0 6px 24px rgba(14,165,233,.12)}
+    .brand h1{margin:0;font-size:16px;letter-spacing:.2px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    .nav-actions{display:flex;gap:8px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(148,163,184,.12);background:var(--glass);cursor:pointer}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.12);background:transparent;color:inherit;cursor:pointer}
+    .btn.primary{background:linear-gradient(180deg, rgba(14,165,233,.12), rgba(14,165,233,.035));border-color:rgba(14,165,233,.28)}
+    .btn:focus,.badge:focus{outline:none;box-shadow:var(--ring)}
+    .grid{display:grid;gap:18px}
+    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    .card{background:var(--panel);border-radius:18px;padding:18px;border:1px solid rgba(148,163,184,.08);box-shadow:0 8px 30px rgba(2,6,23,.4)}
+    .muted{color:var(--muted)}
+    .hero{display:grid;gap:18px;align-items:center}
+    @media(min-width:900px){.hero{grid-template-columns:1.2fr .8fr}}
+    .title{font-size:clamp(26px,4vw,40px);line-height:1.05;margin:0}
+    .subtitle{font-size:clamp(14px,2vw,17px);margin:.5rem 0 0;color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.03)}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+    .k{padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);text-align:center}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px dashed rgba(148,163,184,.18);background:transparent}
+    .progress{height:10px;background:rgba(148,163,184,.15);border-radius:999px;overflow:hidden;margin-top:8px;position:relative}
+    .progress>i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));width:0;transition:width 1.2s cubic-bezier(.2,.9,.3,1)}
+    .list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+    .list li{display:flex;align-items:center;gap:12px}
+    .table{width:100%;border-collapse:collapse;margin-top:8px}
+    .table th,.table td{border-bottom:1px solid rgba(148,163,184,.07);padding:10px;text-align:left}
+    .footer{padding:28px 0;color:var(--muted);text-align:center}
+    input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.12);background:transparent;color:inherit;transition:box-shadow .18s,transform .12s}
+    input:focus,textarea:focus{outline:none;box-shadow:var(--ring);transform:translateY(-2px)}
+    /* small helpers */
+    .muted-ss{color:var(--muted);font-size:13px}
+    .pill-ghost{background:transparent;border:1px solid rgba(255,255,255,.04);padding:6px 10px;border-radius:999px}
+    /* animations */
+    .fade-up{opacity:0;transform:translateY(12px);animation:fadeUp .7s ease forwards}
+    .stagger-1{animation-delay:.08s}.stagger-2{animation-delay:.16s}.stagger-3{animation-delay:.24s}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+    @media print{header,.btn{display:none!important}body{background:#fff;color:#000}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <h1>Priyank Chauhan</h1>
+            <p>Web Developer</p>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a class="badge" href="#projects">Projects</a>
+          <a class="badge" href="#skills">Skills</a>
+          <a class="badge" href="#contact">Contact</a>
+          <button id="themeToggle" class="btn" aria-label="Toggle theme">🌓 Theme</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:20px">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card fade-up">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:12px;align-items:center;justify-content:space-between">
+            <span class="pill">✅ Available for Freelance Work</span>
+            <div class="muted-ss">India • IST • Response ~2 hrs/day</div>
+          </div>
+
+          <div>
+            <h2 class="title">Hi, I'm Priyank — I build modern, responsive websites.</h2>
+            <p class="subtitle">Web developer focused on clean UI, fast performance and reliable deployments. I work with both frontend and simple backend stacks to deliver full single-file demos and production-ready pages.</p>
+            <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+              <a href="#contact" class="btn primary">💼 Hire Me</a>
+              <button onclick="window.print()" class="btn">⬇️ Download PDF</button>
+              <button class="btn" data-copy="prayankchauhan775@gmail.com">📧 Copy Email</button>
+            </div>
+          </div>
+
+          <div class="kpis" aria-hidden="true">
+            <div class="k"><div class="muted">Experience</div><div style="font-weight:800;font-size:18px">5 yrs (theory)</div></div>
+            <div class="k"><div class="muted">Demos</div><div style="font-weight:800;font-size:18px">10+</div></div>
+            <div class="k"><div class="muted">Availability</div><div style="font-weight:800;font-size:18px">~2 hrs/day</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick profile card on right -->
+      <div class="card fade-up stagger-1">
+        <div>
+          <h3 style="margin:0 0 8px 0">Quick Profile</h3>
+          <ul class="list">
+            <li><strong class="pill-ghost">Location</strong> India (IST)</li>
+            <li><strong class="pill-ghost">Focus</strong> Frontend (HTML/CSS/JS) & basic backend (PHP/MySQL)</li>
+            <li><strong class="pill-ghost">Availability</strong> 2 hours/day</li>
+            <li><strong class="pill-ghost">Email</strong> <a href="mailto:prayankchauhan775@gmail.com">prayankchauhan775@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="fade-up" style="margin-top:22px">
+      <div class="card">
+        <h2 style="margin:0 0 10px 0">Skills</h2>
+
+        <div class="skills" aria-hidden="true">
+          <span class="chip">HTML5</span>
+          <span class="chip">CSS3 (Flexbox/Grid)</span>
+          <span class="chip">JavaScript (ES6+)</span>
+          <span class="chip">PHP</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">Responsive Design</span>
+          <span class="chip">Accessibility (a11y)</span>
+          <span class="chip">Git & GitHub</span>
+          <span class="chip">Basic SQL</span>
+          <span class="chip">Web Hosting</span>
+        </div>
+
+        <div style="display:grid;gap:12px;margin-top:14px">
+          <div>
+            <div style="display:flex;justify-content:space-between"><span>HTML</span><span class="muted">80%</span></div>
+            <div class="progress"><i data-width="80%"></i></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between"><span>CSS</span><span class="muted">78%</span></div>
+            <div class="progress"><i data-width="78%"></i></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between"><span>JavaScript</span><span class="muted">70%</span></div>
+            <div class="progress"><i data-width="70%"></i></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between"><span>PHP</span><span class="muted">60%</span></div>
+            <div class="progress"><i data-width="60%"></i></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between"><span>MySQL</span><span class="muted">58%</span></div>
+            <div class="progress"><i data-width="58%"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="fade-up" style="margin-top:24px">
+      <div class="card">
+        <div style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+          <h2 style="margin:0">Projects</h2>
+          <input id="projFilter" class="badge" placeholder="Filter projects (e.g., ecommerce, blog, php)" style="padding:8px 12px" />
+        </div>
+
+        <div class="grid cols-3" style="margin-top:12px">
+          <article class="card" data-project>
+            <div>
+              <div class="pill">Client • ₹1500</div>
+              <h3 style="margin:8px 0 6px">Responsive E-commerce Website</h3>
+              <p class="muted">Mobile-first storefront with product listings, cart UI and checkout handoff. Stack: HTML, CSS, JS.</p>
+              <div style="margin-top:8px"><small class="muted">Tags: ecommerce • responsive • javascript</small></div>
+            </div>
+          </article>
+
+          <article class="card" data-project>
+            <div>
+              <div class="pill">Demo</div>
+              <h3 style="margin:8px 0 6px">Personal Portfolio (this page)</h3>
+              <p class="muted">Single-file portfolio with theme toggle, printable resume and contact via mailto. Stack: HTML, CSS, JS.</p>
+              <div style="margin-top:8px"><small class="muted">Tags: portfolio • single-file • a11y</small></div>
+            </div>
+          </article>
+
+          <article class="card" data-project>
+            <div>
+              <div class="pill">Demo</div>
+              <h3 style="margin:8px 0 6px">Blog App (Auth + CRUD Prototype)</h3>
+              <p class="muted">Prototype with posts, details and basic auth flow using mock JSON and frontend logic.</p>
+              <div style="margin-top:8px"><small class="muted">Tags: blog • crud • auth</small></div>
+            </div>
+          </article>
+
+          <article class="card" data-project>
+            <div>
+              <div class="pill">Demo</div>
+              <h3 style="margin:8px 0 6px">Simple PHP+MySQL Contact Backend</h3>
+              <p class="muted">Small demo showing form submission to PHP and storing to MySQL (demo structure, secure handling recommended for production).</p>
+              <div style="margin-top:8px"><small class="muted">Tags: php • mysql • backend</small></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="fade-up" style="margin-top:24px">
+      <div class="card">
+        <h2 style="margin:0 0 10px 0">Experience (Theory)</h2>
+        <table class="table" role="table" aria-label="Experience timeline">
+          <thead>
+            <tr><th>Year</th><th>Focus</th><th>What I learned</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Year 1</td><td>HTML & CSS</td><td>Semantic HTML, Flexbox & Grid, responsive patterns</td></tr>
+            <tr><td>Year 2</td><td>JavaScript</td><td>DOM, events, fetch API, modular patterns</td></tr>
+            <tr><td>Year 3</td><td>Python & Java</td><td>Flask basics, simple APIs, Java servlets intro</td></tr>
+            <tr><td>Year 4</td><td>Tooling</td><td>Git/GitHub, deployments, hosting, SEO basics</td></tr>
+            <tr><td>Year 5</td><td>Projects</td><td>Portfolio, ecommerce demo, blog prototypes, PHP+MySQL basics</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade-up" style="margin-top:24px">
+      <div class="card">
+        <h2 style="margin:0 0 10px 0">Contact</h2>
+        <form id="contactForm" autocomplete="on" style="display:grid;gap:12px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <label>
+              <div class="muted-ss">Your Name</div>
+              <input required name="name" placeholder="e.g., Rahul Kumar" />
+            </label>
+            <label>
+              <div class="muted-ss">Your Email</div>
+              <input required type="email" name="email" placeholder="you@example.com" />
+            </label>
+          </div>
+          <label>
+            <div class="muted-ss">Message</div>
+            <textarea required name="message" rows="6" placeholder="Tell me about your project..."></textarea>
+          </label>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn primary" type="submit">Send Mail</button>
+            <button class="btn" type="reset">Reset</button>
+            <button class="btn" type="button" data-copy="prayankchauhan775@gmail.com">📧 Copy My Email</button>
+          </div>
+
+          <div class="muted-ss" style="margin-top:8px">Tip: "Send Mail" will open your email client using mailto. For a live contact backend, I can add a PHP + MySQL example (requires hosting).</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="y"></span> Priyank Chauhan • Built with pure HTML, CSS & JS in a single file</footer>
+
+  <script>
+    // Theme toggle
+    const setTheme = t => { document.documentElement.setAttribute('data-theme', t); localStorage.setItem('theme', t); };
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('theme') || 'dark'; setTheme(saved);
+
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        const cur = localStorage.getItem('theme') || 'dark';
+        setTheme(cur === 'dark' ? 'light' : 'dark');
+      });
+
+      // Copy email buttons
+      document.querySelectorAll('[data-copy]').forEach(el => {
+        el.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(el.dataset.copy);
+            const prev = el.innerHTML;
+            el.innerHTML = "✔️ Copied!";
+            setTimeout(()=> el.innerHTML = prev, 1200);
+          } catch(e) {
+            alert('Copy failed – please copy manually: ' + el.dataset.copy);
+          }
+        });
+      });
+
+      // Project filter
+      document.getElementById('projFilter').addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase();
+        document.querySelectorAll('[data-project]').forEach(card => {
+          card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+        });
+      });
+
+      // Contact form -> mailto
+      document.getElementById('contactForm').addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        const f = ev.target;
+        const name = f.name.value.trim(), email = f.email.value.trim(), msg = f.message.value.trim();
+        const subject = encodeURIComponent('Freelance Inquiry from ' + (name || 'Website'));
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
+        location.href = `mailto:prayankchauhan775@gmail.com?subject=${subject}&body=${body}`;
+      });
+
+      // Insert year
+      document.getElementById('y').textContent = new Date().getFullYear();
+
+      // Animate progress bars
+      document.querySelectorAll('.progress i').forEach((el, idx) => {
+        const w = el.getAttribute('data-width') || '0%';
+        // small stagger
+        setTimeout(()=> el.style.width = w, 350 + idx*120);
+      });
+    });
+  </script>
+</body>
+</html>
